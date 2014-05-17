@@ -1,5 +1,15 @@
-<h2><%= board.escape("title") %></h2>
-<button class="btn btn-danger btn-sm" id="delete-board-button">Delete This Board</button>
-<h3>Lists</h3>
-  <ul class="lists">
-  </ul>
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= board.escape("title") %></h2>
+    <button class="btn btn-danger btn-sm" id="delete-board-button">Delete This Board</button>
+  </div>
+</div>
+<div class="row">
+  <div class="list-new col-md-3"></div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Lists</h3>
+    <div class="lists"></div>
+  </div>
+</div>

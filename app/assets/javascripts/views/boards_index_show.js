@@ -1,4 +1,4 @@
-Trellino.Views.BoardsIndexShow = Backbone.View.extend({
+Trellino.Views.BoardsIndexShow = Backbone.CompositeView.extend({
   className: "col-md-3",
 
   template: JST['boards/index_show'],
