@@ -14,3 +14,22 @@
  */
 
 @import "bootstrap";
+// .board {
+//   border: 3px solid #999;
+//   border-radius: 10px;
+//   padding: 15px;
+//   min-height: 300px;
+//   margin-top: 20px;
+//   float: left;
+// }
+.board-square{
+  background-color: #888;
+  color: white;
+  height: 200px;
+  border-radius: 10px;
+  padding: 50px;
+  margin-top: 20px;
+  a{
+    color: white;
+  }
+}
