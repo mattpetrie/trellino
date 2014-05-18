@@ -24,15 +24,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template({ board: this.model });
-    this.$el.html(content);
-    // if (this.model.lists()) {
-    //   this.model.lists().each(function(list){
-    //     this.$('ul.lists').append("<li>" + list.get("title") + "</li>");
-    //   }, this);
-    // }
-    // var addNew = new Trellino.Views.ListsNew({ model: this.model });
-    // this.$el.append(addNew.render().$el);
+    var renderedContent = this.template({ board: this.model });
+    this.$el.html(renderedContent);
     this.renderSubviews();
     return this;
   },

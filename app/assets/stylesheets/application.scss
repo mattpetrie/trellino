@@ -20,6 +20,7 @@
   padding: 15px;
   min-height: 300px;
   margin-top: 20px;
+  background-color: #bbb;
 }
 
 .board-square{
@@ -33,4 +34,16 @@
   a{
     color: white;
   }
+}
+
+ul.cards{
+  list-style: none;
+}
+
+.card{
+  margin-top: 10px;
+  padding: 5px;
+  min-height: 25px;
+  background-color: #eee;
+  border-radius: 5px;
 }
