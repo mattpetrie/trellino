@@ -1,8 +1,9 @@
 Trellino.Models.List = Backbone.Model.extend({
-  urlRoot: "/api/lists",
 
-  url: function(){
-    return this.board.url() + "/lists"
+  urlRoot: function(){
+    var boardId = this.get("board_id");
+    var board = Trellino.Collections.boards.get(boardId);
+    return board.url() + "/lists"
   },
 
   cards: function(){

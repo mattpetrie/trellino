@@ -1,6 +1,11 @@
 Trellino.Views.CardsShow = Backbone.View.extend({
   tagName: "li",
 
+  events: {
+    "mouseenter .delete-button-wrapper": "showButton",
+    "mouseleave .delete-button-wrapper": "showButton"
+  },
+
   className: "card",
 
   template: JST["cards/show"],
@@ -12,4 +17,8 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     this.$el.html(renderedContent);
     return this;
   },
+
+  showButton: function(event){
+    $(event.target).find('button').toggle();
+  }
 });

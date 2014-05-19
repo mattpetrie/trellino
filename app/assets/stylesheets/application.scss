@@ -14,9 +14,16 @@
  */
 
 @import "bootstrap";
+body{
+  background-color: #5A966E;
+}
+
+.board-view{
+  color: white;
+}
 .list-box {
   border: 3px solid #999;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 15px;
   min-height: 300px;
   margin-top: 20px;
@@ -27,7 +34,7 @@
   background-color: #888;
   color: white;
   height: 200px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 50px;
   margin-top: 20px;
   text-align: center;
@@ -38,12 +45,25 @@
 
 ul.cards{
   list-style: none;
+  padding-left: 0;
 }
 
 .card{
   margin-top: 10px;
   padding: 5px;
-  min-height: 25px;
+  min-height: 30px;
   background-color: #eee;
   border-radius: 5px;
+}
+
+.card-delete-button{
+  height: 20px;
+  width: 20px;
+  display: none;
+}
+
+.delete-button-wrapper{
+  height: 20px;
+  width: 20px;
+  display: block;
 }
