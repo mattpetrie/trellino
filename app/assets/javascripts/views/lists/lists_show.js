@@ -45,6 +45,34 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.renderSubviews();
+    var that = this;
+    this.$el.find('.cards').sortable({
+      axis: 'x,y',
+      connectWith: '.cards',
+      update: function (event) {
+        var ids = $(event.target).sortable('toArray', { attribute: "data-id" });
+        that.updateCardRanks(ids);
+      },
+    })
+
     return this;
+  },
+
+  updateCardRanks: function(ids){
+    // debugger
+    var that = this;
+    var rank = 1
+    _.each(ids, function(id){
+      var card = that.model.cards().get(id);
+      if(!card){
+        card = new Trellino.Models.Card({ id: id });
+      }
+      card.fetch();
+      card.save({
+        'rank': rank,
+        'list_id': that.model.id,
+      }, { patch: true });
+      rank++;
+    });
   },
 });

@@ -12,11 +12,6 @@
  *= require_self
  *= require_tree .
  */
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url(asset_path('glyphicons-halflings-regular.eot'));
-  src: url(asset_path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'), url(asset_path('glyphicons-halflings-regular.woff')) format('woff'), url(asset_path('glyphicons-halflings-regular.ttf')) format('truetype'), url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
-}
 
 @import "bootstrap";
 body{
@@ -29,7 +24,7 @@ body{
 .list-box {
   border: 3px solid #999;
   border-radius: 5px;
-  padding: 15px;
+  padding: 15px 15px 35px 15px;
   min-height: 300px;
   margin-top: 20px;
   background-color: #bbb;
@@ -61,12 +56,19 @@ ul.cards{
   border-radius: 5px;
 }
 
+.card:hover{
+  background-color: #999;
+  .card-delete-button{
+    display: inline;
+  }
+}
+
 .card-delete-button{
   height: 20px;
   width: 20px;
-}
-
-.hidden{
+  text-align: center;
+  padding: 0px 3px 4px 3px;
+  font-weight: bold;
   display: none;
 }
 

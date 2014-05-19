@@ -2,8 +2,6 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   tagName: "li",
 
   events: {
-    "mouseenter .delete-button-wrapper": "showButton",
-    "mouseleave .delete-button-wrapper": "hideButton",
     "click .card-delete-button": "destroy",
   },
 
@@ -21,14 +19,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       card: this.model
     });
     this.$el.html(renderedContent);
+    this.$el.attr("data-id", this.model.get('id'));
     return this;
   },
-
-  showButton: function(event){
-    $(event.target).find('button').toggleClass('hidden');
-  },
-
-  hideButton: function(event){
-    $(event.target).toggleClass('hidden');
-  }
 });
