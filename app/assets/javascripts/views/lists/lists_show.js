@@ -1,10 +1,11 @@
 Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model.cards(), "add", this.addCard);
+    this.listenTo(this.model.cards(), "remove", this.removeCard)
     this.listenTo(this.model, "sync add", this.render);
-    // var listNewView = new Trellino.Views.ListsNew({ model: this.model});
-    // this.addSubview(".list-new", listNewView);
     this.model.cards().each(this.addCard.bind(this));
+    var cardNewView = new Trellino.Views.CardsNew({ model: this.model});
+    this.addSubview(".cards-new", cardNewView);
   },
 
   events: {
@@ -23,6 +24,16 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.addSubview(".cards", cardsShowView);
     cardsShowView.render();
   },
+
+  removeCard: function(card){
+    var cardsShowView =
+      _(this.subviews()[".cards"]).find(function (subview) {
+    return subview.model == card;
+    });
+
+    this.removeSubview(".card", cardsShowView);
+  },
+
 
   className: "col-md-3",
 
