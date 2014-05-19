@@ -54,6 +54,7 @@ ul.cards{
   min-height: 30px;
   background-color: #eee;
   border-radius: 5px;
+  transition: background-color 0.5s ease;
 }
 
 .card:hover{
@@ -81,4 +82,15 @@ ul.cards{
 .cards-new{
   position: absolute;
   bottom: 5px;
+}
+
+.dragged{
+  transform: rotate(5deg) !important;
+  -ms-transform: rotate(5deg) !important; /* IE 9 */
+  -webkit-transform: rotate(5deg) !important; /* Chrome, Safari, Opera */
+}
+
+.ui-sortable-placeholder{
+  visibility: visible !important;
+  background-color: #888;
 }

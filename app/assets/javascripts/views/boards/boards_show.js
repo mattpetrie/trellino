@@ -37,6 +37,15 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
     this.renderSubviews();
+    var that = this;
+    this.$el.find('.lists').sortable({
+      axis: 'x,y',
+      update: function (event) {
+        var ids = $(event.target).sortable('toArray', { attribute: "data-id" });
+        that.updateListRanks(ids);
+      },
+    })
+
     return this;
   },
 
@@ -47,5 +56,17 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
         Backbone.history.navigate("#", { trigger: true });
       },
     });
+  },
+
+  updateListRanks: function(ids){
+    var that = this;
+    var rank = 1;
+    _.each(ids, function(id){
+      var list = that.model.lists().get(id);
+      list.save({
+        'rank': rank, 
+      }, { patch: true })
+      rank++;
+    })
   },
 });
