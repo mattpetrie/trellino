@@ -22,10 +22,6 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
     var index = this;
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    // this.collection.each(function(board){
-    //   var boardView = new Trellino.Views.BoardsIndexShow({ model: board });
-    //   index.addSubview(".boards", boardView);
-    // });
     this.renderSubviews();
     return this;
   },

@@ -13,19 +13,37 @@
  *= require_tree .
  */
 $boarder: 5px;
+$main-color: #5A966E;
+$navbar-default-bg: darken($main-color, 10%);
+$navbar-default-color: white;
+$navbar-default-link-color: white;
+$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif;
 
+@import url(http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700);
 @import "bootstrap";
 body{
-  background-color: #5A966E;
+  background-color: $main-color;
+}
+
+h2{
+  font-weight: 700;
+}
+
+.navbar{
+  font-family: "Pacifico", sans-serif;
+  .navbar-brand{
+    font-size: 28px;
+  }
 }
 
 .board-view{
   color: white;
 }
+
 .list-box {
   border: 3px solid #999;
   border-radius: $boarder;
-  padding: 15px 15px 35px 15px;
+  padding: 15px 15px 45px 15px;
   min-height: 300px;
   margin-top: 20px;
   background-color: #bbb;
@@ -47,6 +65,7 @@ body{
 ul.cards{
   list-style: none;
   padding-left: 0;
+  min-height: 50px;
 }
 
 .card{
@@ -89,11 +108,17 @@ ul.cards{
   transform: rotate(5deg) !important;
   -ms-transform: rotate(5deg) !important; /* IE 9 */
   -webkit-transform: rotate(5deg) !important; /* Chrome, Safari, Opera */
+  // box-shadow: -3px 3px 3px #888;
+}
+
+.form-control{
+  max-height: 30px;
 }
 
 .lists{
   list-style: none;
   padding-left: 0;
+  display: inline;
 }
 
 .lists > li {
