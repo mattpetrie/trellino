@@ -1,8 +1,8 @@
 Trellino.Views.CardsShow = Backbone.View.extend({
-  tagName: "li",
-
-  events: {
-    "click .card-delete-button": "destroy",
+  attributes: function(){
+    return {
+      "data-id": this.model.id
+    }
   },
 
   className: "card",
@@ -12,14 +12,19 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     this.model.destroy();
   },
 
-  template: JST["cards/show"],
+  events: {
+    "click .card-delete-button": "destroy",
+  },
 
   render: function(){
     var renderedContent = this.template({
       card: this.model
     });
     this.$el.html(renderedContent);
-    this.$el.attr("data-id", this.model.get('id'));
     return this;
   },
+
+  tagName: "li",
+
+  template: JST["cards/show"],
 });

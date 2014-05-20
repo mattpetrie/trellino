@@ -1,17 +1,4 @@
 Trellino.Views.ListsNew = Backbone.View.extend({
-
-  events: {
-    "submit #add-list-form": "addList"
-  },
-
-  template: JST['lists/new'],
-
-  render: function(){
-    var content = this.template({ board: this.model });
-    this.$el.html(content);
-    return this;
-  },
-
   addList: function(event){
     event.preventDefault();
     var board = this.model;
@@ -24,4 +11,16 @@ Trellino.Views.ListsNew = Backbone.View.extend({
       }
     });
   },
+
+  events: {
+    "submit #add-list-form": "addList"
+  },
+
+  render: function(){
+    var content = this.template({ board: this.model });
+    this.$el.html(content);
+    return this;
+  },
+
+  template: JST['lists/new'],  
 });

@@ -7,8 +7,6 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addBoard.bind(this));
   },
 
-  template: JST['boards/index'],
-
   addBoard: function (board) {
     var boardsIndexShowView = new Trellino.Views.BoardsIndexShow({
       model: board
@@ -25,4 +23,6 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
     this.renderSubviews();
     return this;
   },
+
+  template: JST['boards/index'],
 })

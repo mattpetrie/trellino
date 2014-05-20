@@ -1,16 +1,4 @@
 Trellino.Views.CardsNew = Backbone.View.extend({ 
-  events: {
-    "submit #add-card-form": "addCard"
-  },
-
-  template: JST['cards/new'],
-
-  render: function(){
-    var content = this.template({ list: this.model });
-    this.$el.html(content);
-    return this;
-  },
-
   addCard: function(event){
     event.preventDefault();
     var list = this.model;
@@ -24,4 +12,16 @@ Trellino.Views.CardsNew = Backbone.View.extend({
       }
     });
   },
+
+  events: {
+    "submit #add-card-form": "addCard"
+  },
+
+  render: function(){
+    var content = this.template({ list: this.model });
+    this.$el.html(content);
+    return this;
+  },
+
+  template: JST['cards/new'],
 });

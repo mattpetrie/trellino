@@ -8,11 +8,19 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.addSubview(".cards-new", cardNewView);
   },
 
-  events: {
-    "click .delete-list": "destroy"
+  addCard: function(card){
+    var cardsShowView = new Trellino.Views.CardsShow({
+      model: card
+    });
+    this.addSubview(".cards", cardsShowView);
+    cardsShowView.render();
   },
 
-  tagName: 'li',
+  attributes: function () {
+    return {
+      "data-id": this.model.id
+    }
+  },
 
   className: 'list-wrapper col-md-3',
 
@@ -21,12 +29,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.model.destroy();
   },
 
-  addCard: function(card){
-    var cardsShowView = new Trellino.Views.CardsShow({
-      model: card
-    });
-    this.addSubview(".cards", cardsShowView);
-    cardsShowView.render();
+  events: {
+    "click .delete-list": "destroy"
   },
 
   removeCard: function(card){
@@ -38,14 +42,11 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.removeSubview(".card", cardsShowView);
   },
 
-  template: JST["lists/show"],
-
   render: function(){
     renderedContent = this.template({
       list: this.model
     });
     this.$el.html(renderedContent);
-    this.$el.attr("data-id", this.model.id);
     this.renderSubviews();
     this.setSortable();
     return this;
@@ -68,6 +69,10 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       },
     })
   },
+
+  tagName: 'li',
+
+  template: JST["lists/show"],
 
   updateCardRanks: function(ids){
     var that = this;

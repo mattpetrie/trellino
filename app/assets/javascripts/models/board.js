@@ -1,6 +1,4 @@
 Trellino.Models.Board = Backbone.Model.extend({
-  urlRoot: "/api/boards",
-
   lists: function(){
     this._lists = this._lists ||
       new Trellino.Collections.BoardLists([], { board: this });
@@ -15,4 +13,6 @@ Trellino.Models.Board = Backbone.Model.extend({
 
     return resp;
   },
+    
+  urlRoot: "/api/boards",
 });
