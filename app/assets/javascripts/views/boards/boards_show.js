@@ -37,16 +37,27 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
     this.renderSubviews();
+    this.setSortable();
+    return this;
+  },
+
+  setSortable: function(){
     var that = this;
     this.$el.find('.lists').sortable({
       axis: 'x,y',
+      placeholder: 'ui-sortable-placeholder',
+      forcePlaceholderSize: true,
+      start: function(event, ui){
+        $(ui.item).toggleClass('dragged');
+      },
+      stop: function(event, ui){
+        $(ui.item).toggleClass('dragged');
+      },
       update: function (event) {
         var ids = $(event.target).sortable('toArray', { attribute: "data-id" });
         that.updateListRanks(ids);
       },
     })
-
-    return this;
   },
 
   destroyBoard: function(event){

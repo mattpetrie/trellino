@@ -12,6 +12,7 @@
  *= require_self
  *= require_tree .
  */
+$boarder: 5px;
 
 @import "bootstrap";
 body{
@@ -23,7 +24,7 @@ body{
 }
 .list-box {
   border: 3px solid #999;
-  border-radius: 5px;
+  border-radius: $boarder;
   padding: 15px 15px 35px 15px;
   min-height: 300px;
   margin-top: 20px;
@@ -34,7 +35,7 @@ body{
   background-color: #888;
   color: white;
   height: 200px;
-  border-radius: 5px;
+  border-radius: $boarder;
   padding: 50px;
   margin-top: 20px;
   text-align: center;
@@ -53,7 +54,7 @@ ul.cards{
   padding: 5px;
   min-height: 30px;
   background-color: #eee;
-  border-radius: 5px;
+  border-radius: $boarder;
   transition: background-color 0.5s ease;
 }
 
@@ -90,7 +91,22 @@ ul.cards{
   -webkit-transform: rotate(5deg) !important; /* Chrome, Safari, Opera */
 }
 
+.lists{
+  list-style: none;
+  padding-left: 0;
+}
+
+.lists > li {
+  float: left;
+  max-width: 25%;
+}
+
+.list-wrapper{
+  min-height: 300px;
+}
+
 .ui-sortable-placeholder{
   visibility: visible !important;
-  background-color: #888;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: $boarder;
 }
